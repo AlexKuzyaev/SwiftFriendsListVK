@@ -2,8 +2,6 @@
 
 iOS Swift Test Project with [VKiOSsdk](https://github.com/VKCOM/vk-ios-sdk) and MVVM architecture
 
-## Swift iOS test-application "VK Friends"
-
 ## Task (ENG)
 
 Test application SwiftFriendsListVK downloads friend list via vk-uis-sdk and display them in a tableView. The pull-to-refresh gesture updates the friends list. 
@@ -22,8 +20,7 @@ Alamofire, SwiftyJSON, RxSwift, RxCocoa, VK-ios-sdk, SDWebImage, ObjectMapper, P
 ## Screenshots
 
 LoginViewController            |  FriendsListViewController | FriendDetailViewController
-:-------------------------:|:-------------------------:|:-------------------------:
-<img src="https://user-images.githubusercontent.com/19716289/43244147-23aeef00-90c3-11e8-86ab-bd8b6397de25.png" width="50%"> | <img src="https://user-images.githubusercontent.com/19716289/43244171-3558370c-90c3-11e8-8c6f-0adaea9373cb.png" width="50%"> |
-<img src="https://user-images.githubusercontent.com/19716289/43244183-3c9918ce-90c3-11e8-9bed-d3ea6746a136.png" width="50%">
+:-------------------------:|:-------------------------:|:-------------------------:|
+<img src="https://user-images.githubusercontent.com/19716289/43244147-23aeef00-90c3-11e8-86ab-bd8b6397de25.png" width="50%"> | <img src="https://user-images.githubusercontent.com/19716289/43244171-3558370c-90c3-11e8-8c6f-0adaea9373cb.png" width="50%"> |<img src="https://user-images.githubusercontent.com/19716289/43244183-3c9918ce-90c3-11e8-9bed-d3ea6746a136.png" width="50%">
 
 * **Alex Kuzyaev** - [AlexKuzyaev](https://github.com/AlexKuzyaev)
