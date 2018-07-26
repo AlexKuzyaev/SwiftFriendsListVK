@@ -1,6 +1,6 @@
 # SwiftFriendsListVK
 
-iOS Swift Test Project with [VKiOSsdk](https://github.com/VKCOM/vk-ios-sdk) and MVVM architecture
+iOS Swift Test Project with [vk-ios-sdk](https://github.com/VKCOM/vk-ios-sdk) and MVVM architecture
 
 ## Task (ENG)
 
