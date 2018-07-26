@@ -15,7 +15,7 @@ By tap on the cell of the list, you can see information on the selected friend.
 
 ## PODS
 
-Alamofire, SwiftyJSON, RxSwift, RxCocoa, VK-ios-sdk, SDWebImage, ObjectMapper, PKHUD
+VK-ios-sdk, SwiftyJSON, RxSwift, RxCocoa, SDWebImage, ObjectMapper, PKHUD
 
 ## Screenshots
 
