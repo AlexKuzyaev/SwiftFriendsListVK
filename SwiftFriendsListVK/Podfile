@@ -6,7 +6,6 @@ target 'SwiftFriendsListVK' do
   use_frameworks!
 
   # Pods for SwiftFriendsListVK
-  pod 'Alamofire'
   pod 'SwiftyJSON'
   pod 'RxSwift',    '~> 4.0'
   pod 'RxCocoa',    '~> 4.0'
