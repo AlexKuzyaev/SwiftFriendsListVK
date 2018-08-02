@@ -1,3 +1,5 @@
+
+
 # SwiftFriendsListVK
 
 iOS Swift Test Project with [vk-ios-sdk](https://github.com/VKCOM/vk-ios-sdk) and MVVM architecture
@@ -22,5 +24,9 @@ VK-ios-sdk, SwiftyJSON, RxSwift, RxCocoa, SDWebImage, ObjectMapper, PKHUD
 LoginViewController            |  FriendsListViewController | FriendDetailViewController
 :-------------------------:|:-------------------------:|:-------------------------:|
 <img src="https://user-images.githubusercontent.com/19716289/43244147-23aeef00-90c3-11e8-86ab-bd8b6397de25.png" width="50%"> | <img src="https://user-images.githubusercontent.com/19716289/43244171-3558370c-90c3-11e8-8c6f-0adaea9373cb.png" width="50%"> |<img src="https://user-images.githubusercontent.com/19716289/43244183-3c9918ce-90c3-11e8-9bed-d3ea6746a136.png" width="50%">
+
+## Plans
+
+1. 100% Unit Testing (currently 43%)
 
 * **Alex Kuzyaev** - [AlexKuzyaev](https://github.com/AlexKuzyaev)
