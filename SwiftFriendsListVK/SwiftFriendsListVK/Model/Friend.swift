@@ -9,7 +9,7 @@
 import Foundation
 import ObjectMapper
 
-public struct Friend: Mappable, FullName {
+public struct Friend: Mappable, FullNameProtocol {
     var id: Int!
     var firstName: String!
     var lastName: String!

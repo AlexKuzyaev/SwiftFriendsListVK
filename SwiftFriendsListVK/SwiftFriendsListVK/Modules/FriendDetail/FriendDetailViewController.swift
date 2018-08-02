@@ -78,12 +78,24 @@ class FriendDetailViewController: BaseViewController {
                     } else {
                         self?.labelSeen.text = ""
                     }
-                    self?.labelCity.text = friendDetail.city
-                    self?.labelFriends.text = "\(friendDetail.friends_count!)"
-                    self?.labelCommon.text = "\(friendDetail.common_count!)"
-                    self?.labelFollowers.text = "\(friendDetail.followers_count!)"
-                    self?.labelPhotos.text = "\(friendDetail.photos_count!)"
-                    self?.labelVideos.text = "\(friendDetail.videos_count!)"
+                    if let city = friendDetail.city {
+                        self?.labelCity.text = city
+                    }
+                    if let friendsCount = friendDetail.friends_count {
+                        self?.labelFriends.text = "\(friendsCount)"
+                    }
+                    if let commonCount = friendDetail.common_count {
+                        self?.labelCommon.text = "\(commonCount)"
+                    }
+                    if let followersCount = friendDetail.followers_count {
+                        self?.labelFollowers.text = "\(followersCount)"
+                    }
+                    if let photosCount = friendDetail.photos_count {
+                        self?.labelPhotos.text = "\(photosCount)"
+                    }
+                    if let videosCount = friendDetail.videos_count {
+                        self?.labelVideos.text = "\(videosCount)"
+                    }
                 }
             }
         }.disposed(by: disposeBag)

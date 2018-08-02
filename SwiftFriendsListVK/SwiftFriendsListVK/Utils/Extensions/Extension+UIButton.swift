@@ -10,13 +10,13 @@ import UIKit
 
 extension UIButton {
     
-    func animateTap() {
+    func animateTap(completion: ((Bool) -> Void)? = nil) {
         UIView.animate(withDuration: 0.1, animations: { [weak self] in
             self?.transform = CGAffineTransform(scaleX: 0.96, y: 0.96)
-        }, completion: { finish in
+        }, completion: { finished in
             UIView.animate(withDuration: 0.1, animations: { [weak self] in
                 self?.transform = CGAffineTransform.identity
-            })
+                }, completion: completion)
         })
     }
 }

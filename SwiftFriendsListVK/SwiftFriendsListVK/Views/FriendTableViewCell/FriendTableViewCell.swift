@@ -11,12 +11,12 @@ import SDWebImage
 
 class FriendTableViewCell: UITableViewCell {
     
-    @IBOutlet private weak var avatarImageView: UIImageView!
-    @IBOutlet private weak var labelName: UILabel!
+    @IBOutlet weak var avatarImageView: UIImageView!
+    @IBOutlet weak var labelName: UILabel!
     
-    func update(avatarUrl: URL?, name: String) {
+    func update(avatarUrl: URL?, name: String, complition: SDExternalCompletionBlock? = nil) {
         if avatarUrl != nil {
-            avatarImageView.sd_setImage(with: avatarUrl!, completed: nil)
+            avatarImageView.sd_setImage(with: avatarUrl!, completed: complition)
         }
         labelName.text = name
     }

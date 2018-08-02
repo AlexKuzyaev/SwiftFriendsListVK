@@ -15,8 +15,10 @@ class LoginViewModel: BaseViewModel {
     func vkLogin() {
         VKManager.instance.login { [weak self] (result) in
             switch result {
-            case .Success(_):
-                self?.successLogin?()
+            case .Success(let success):
+                if success {
+                    self?.successLogin?()
+                }
             case .Error(let error):
                 self?.alertMessage = error.localizedDescription
             }

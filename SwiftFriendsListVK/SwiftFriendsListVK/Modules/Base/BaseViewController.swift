@@ -25,9 +25,11 @@ extension BaseViewController: VKSdkUIDelegate {
         if (self.presentedViewController != nil) {
             self.dismiss(animated: true, completion: {
                 print("hide current modal controller if presents")
-                self.present(controller, animated: true, completion: {
-                    print("SFSafariViewController opened to login through a browser")
-                })
+                DispatchQueue.main.async { [weak self] in
+                    self?.present(controller, animated: true, completion: {
+                        print("SFSafariViewController opened to login through a browser")
+                    })
+                }
             })
         } else {
             self.present(controller, animated: true, completion: {

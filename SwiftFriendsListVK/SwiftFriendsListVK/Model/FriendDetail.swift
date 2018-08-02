@@ -9,19 +9,19 @@
 import Foundation
 import ObjectMapper
 
-public struct FriendDetail: Mappable, FullName {
+public struct FriendDetail: Mappable, FullNameProtocol {
     var id: Int!
     var firstName: String!
     var lastName: String!
     var avatarOrigUrl: String!
-    var status: String!
-    var time: Int!
-    var city: String!
-    var friends_count: Int!
-    var common_count: Int!
-    var followers_count: Int!
-    var photos_count: Int!
-    var videos_count: Int!
+    var status: String?
+    var time: Int?
+    var city: String?
+    var friends_count: Int?
+    var common_count: Int?
+    var followers_count: Int?
+    var photos_count: Int?
+    var videos_count: Int?
     
     public init?(map: Map){ }
     
@@ -51,5 +51,4 @@ extension FriendDetail {
         }
         return nil
     }
-    
 }

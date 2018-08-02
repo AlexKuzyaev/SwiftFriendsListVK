@@ -11,7 +11,7 @@ import PKHUD
 
 class FriendsListViewController: BaseViewController {
     
-    @IBOutlet fileprivate weak var tableView: UITableView!
+    @IBOutlet public weak var tableView: UITableView!
     
     private lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
@@ -23,7 +23,7 @@ class FriendsListViewController: BaseViewController {
         return refreshControl
     }()
         
-    private let viewModel = FriendsListViewModel()
+    let viewModel = FriendsListViewModel()
     private let cellReuseIdentifier = "friendTableViewCell"
     
     class func instance() -> FriendsListViewController {
@@ -80,7 +80,7 @@ class FriendsListViewController: BaseViewController {
         navigationController?.pushViewController(controller, animated: true)
     }
     
-    fileprivate func updateTitle(count: Int) {
+    func updateTitle(count: Int) {
         title = "\(count) friends"
     }
 }

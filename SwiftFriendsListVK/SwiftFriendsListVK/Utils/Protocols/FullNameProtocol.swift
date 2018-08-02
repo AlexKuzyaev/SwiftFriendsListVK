@@ -1,5 +1,5 @@
 //
-//  FullName.swift
+//  FullNameProtocol.swift
 //  SwiftFriendsListVK
 //
 //  Created by Александр Кузяев on 25.07.18.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol FullName {
+protocol FullNameProtocol {
     
     var firstName: String! { get }
     var lastName: String! { get }
@@ -16,13 +16,15 @@ protocol FullName {
     func getFullName() -> String
 }
 
-extension FullName {
+extension FullNameProtocol {
     func getFullName() -> String {
-        if firstName != nil && lastName != nil {
+        let firstNameExists = firstName != nil && firstName != ""
+        let lastNameExists = lastName != nil && lastName != ""
+        if firstNameExists && lastNameExists {
             return "\(firstName!) \(lastName!)"
-        } else if firstName != nil {
+        } else if firstNameExists {
             return firstName
-        } else if lastName != nil {
+        } else if lastNameExists {
             return lastName
         }
         return ""

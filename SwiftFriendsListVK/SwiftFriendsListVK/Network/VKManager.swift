@@ -40,10 +40,10 @@ class VKManager: NSObject {
         VKSdk.wakeUpSession(scope) { (state, error) in
             if state == .authorized {
                 completion(.Success(true))
-            } else if error == nil {
-                VKSdk.authorize(scope)
-            } else {
+            } else if error != nil {
                 completion(.Error(error!))
+            } else {
+                VKSdk.authorize(scope)
             }
         }
     }
@@ -62,10 +62,13 @@ class VKManager: NSObject {
                     return nil
                 })
                 completion(.Success(result))
+            } else {
+                completion(.Error(NSError(domain:"", code:0, userInfo:nil)))
             }
         }, errorBlock: { (error) in
             if (error! as NSError).code != VK_API_ERROR {
                 (error! as NSError).vkError.request.repeat()
+                completion(.Error(error!))
             } else {
                 completion(.Error(error!))
             }
@@ -83,10 +86,13 @@ class VKManager: NSObject {
                     completion(.Success(friendDetail))
                 }
                 completion(.Error(NSError(domain:"", code:0, userInfo:nil)))
+            } else {
+                completion(.Error(NSError(domain:"", code:0, userInfo:nil)))
             }
         }, errorBlock: { (error) in
             if (error! as NSError).code != VK_API_ERROR {
                 (error! as NSError).vkError.request.repeat()
+                completion(.Error(error!))
             } else {
                 completion(.Error(error!))
             }
