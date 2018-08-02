@@ -29,4 +29,6 @@ LoginViewController            |  FriendsListViewController | FriendDetailViewCo
 
 1. 100% Unit Testing (currently 43%)
 
+## Author
+
 * **Alex Kuzyaev** - [AlexKuzyaev](https://github.com/AlexKuzyaev)
