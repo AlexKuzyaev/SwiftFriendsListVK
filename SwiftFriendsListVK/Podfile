@@ -15,3 +15,22 @@ target 'SwiftFriendsListVK' do
   pod 'PKHUD', '~> 5.0'
 
 end
+
+target 'SwiftFriendsListVKTests' do
+    # Comment the next line if you're not using Swift and don't want to use dynamic frameworks
+    use_frameworks!
+    
+    # Pods for SwiftFriendsListVK
+    pod 'SwiftyJSON'
+    pod 'RxSwift',    '~> 4.0'
+    pod 'RxCocoa',    '~> 4.0'
+    pod 'VK-ios-sdk'
+    pod 'SDWebImage', '~> 4.0'
+    pod 'ObjectMapper', '~> 3.2'
+    pod 'PKHUD', '~> 5.0'
+    
+    # Test Pods
+    pod 'Quick'
+    pod 'Nimble'
+    
+end
