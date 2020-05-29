@@ -20,7 +20,7 @@ extension UIViewController {
         self.present(alert, animated: true, completion: nil)
     }
 
-    // MARK: -  PKHud Methods
+    // MARK: -  PKHUD Methods
 
     func hudFlash(content: HUDContentType) {
         HUD.flash(content, delay: UiConstants.hudDelay)

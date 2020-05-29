@@ -7,7 +7,6 @@
 //
 
 import UIKit
-import PKHUD
 
 class FriendsListViewController: BaseViewController {
 
@@ -137,7 +136,7 @@ private extension FriendsListViewController {
             }
         }
 
-        HUD.show(.progress)
+        hudShowProgress()
         viewModel.fetchFriends()
     }
 }

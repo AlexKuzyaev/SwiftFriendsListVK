@@ -152,6 +152,15 @@
 			path = Protocols;
 			sourceTree = "<group>";
 		};
+		20450BF02481A5780080B5DF /* Base Classes */ = {
+			isa = PBXGroup;
+			children = (
+				4AECEA302108D79200E38BBA /* BaseViewController.swift */,
+				4AECEA2A2108D00A00E38BBA /* BaseViewModel.swift */,
+			);
+			path = "Base Classes";
+			sourceTree = "<group>";
+		};
 		4A660BD02110DE83009EB792 /* SwiftFriendsListVKTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -225,7 +234,6 @@
 		4AECE9FC21077ED400E38BBA /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				4AECEA292108CFFD00E38BBA /* Base */,
 				4AECEA222108A86A00E38BBA /* FriendDetail */,
 				4AECEA212108A86500E38BBA /* FriendsList */,
 				4AECEA0E21079F7600E38BBA /* Login */,
@@ -253,6 +261,7 @@
 		4AECE9FF21077EE000E38BBA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				20450BF02481A5780080B5DF /* Base Classes */,
 				20450BE724819B3C0080B5DF /* Protocols */,
 				4AECEA0421077F3A00E38BBA /* Extensions */,
 			);
@@ -308,15 +317,6 @@
 				20450BEE2481A1EA0080B5DF /* FriendDetailViewController.storyboard */,
 			);
 			path = FriendDetail;
-			sourceTree = "<group>";
-		};
-		4AECEA292108CFFD00E38BBA /* Base */ = {
-			isa = PBXGroup;
-			children = (
-				4AECEA302108D79200E38BBA /* BaseViewController.swift */,
-				4AECEA2A2108D00A00E38BBA /* BaseViewModel.swift */,
-			);
-			path = Base;
 			sourceTree = "<group>";
 		};
 		4D46CD01953BEB7C1083C1FE /* Frameworks */ = {
