@@ -9,15 +9,19 @@
 import Foundation
 
 class LoginViewModel: BaseViewModel {
+
+    // MARK: - Properties
     
-    var successLogin: (()->())?
+    var onSuccessLogin: EmptyClosure?
+
+    // MARK: - Public Methods
     
     func vkLogin() {
         VKManager.instance.login { [weak self] (result) in
             switch result {
             case .Success(let success):
                 if success {
-                    self?.successLogin?()
+                    self?.onSuccessLogin?()
                 }
             case .Error(let error):
                 self?.alertMessage = error.localizedDescription

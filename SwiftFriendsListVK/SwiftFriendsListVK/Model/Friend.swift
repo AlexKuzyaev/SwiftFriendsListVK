@@ -10,18 +10,42 @@ import Foundation
 import ObjectMapper
 
 public struct Friend: Mappable, FullNameProtocol {
+
+    // MARK: - Constants
+
+    private enum Constants {
+        static let deleted = "DELETED"
+
+        enum Keys {
+            static let id = "id"
+            static let firstName = "first_name"
+            static let lastName = "last_name"
+            static let avatarUrl = "photo_100"
+        }
+    }
+
+    // MARK: - Properties
+
     var id: Int!
     var firstName: String!
     var lastName: String!
     var avatarUrl: String!
+
+    var isDeleted: Bool {
+        return firstName == Constants.deleted
+    }
+
+    // MARK: - Initialization
     
-    public init?(map: Map){ }
+    public init?(map: Map) {}
+
+    // MARK: - Mapping
     
     mutating public func mapping(map: Map) {
-        id          <- map["id"]
-        firstName   <- map["first_name"]
-        lastName    <- map["last_name"]
-        avatarUrl   <- map["photo_100"]
+        id          <-  map[Constants.Keys.id]
+        firstName   <-  map[Constants.Keys.firstName]
+        lastName    <-  map[Constants.Keys.lastName]
+        avatarUrl   <-  map[Constants.Keys.avatarUrl]
     }
 }
 

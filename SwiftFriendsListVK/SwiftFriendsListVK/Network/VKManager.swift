@@ -10,77 +10,107 @@ import Foundation
 import VK_ios_sdk
 import SwiftyJSON
 
-private let APP_ID = "6642077"
-
-enum Result<T> {
-    case Success(T)
-    case Error(Error)
-}
-
 class VKManager: NSObject {
-    
-    static let instance = VKManager()
-    private override init() {}
-    
-    var loginCompletion: ((Result<Bool>) -> Void)?
 
-    func setup() {
-        if let instance = VKSdk.initialize(withAppId: APP_ID) {
-            instance.register(self)
+    // MARK: - Constants
+
+    private enum Constants {
+
+        static let items = "items"
+
+        enum Keys {
+            static let fields = "fields"
+            static let userIds = "user_ids"
+        }
+
+        enum Values {
+            static let friendListFields = "id, first_name, last_name, photo_100"
+            static let friendFields = "id, first_name, last_name, photo_200_orig, status, last_seen, city, friends_count, common_count, followers_count, photos_count, videos_count, counters"
         }
     }
+
+    // MARK: - Static Properties
     
+    static let instance = VKManager()
+
+    // MARK: - Private Properties
+
+    private var onLogin: ResultBoolClosure?
+
+    // MARK: - Public Methods
+
+    func setup() {
+        guard let instance = VKSdk.initialize(withAppId: AppConstants.vkAppId) else {
+            return
+        }
+        instance.register(self)
+    }
     
-    func login(completion: @escaping (Result<Bool>) -> Void) {
+    func login(completion: @escaping ResultBoolClosure) {
         
-        loginCompletion = completion
+        onLogin = completion
         
         let scope = [VK_PER_FRIENDS]
         
         VKSdk.wakeUpSession(scope) { (state, error) in
             if state == .authorized {
                 completion(.Success(true))
-            } else if error != nil {
-                completion(.Error(error!))
+            } else if let error = error {
+                completion(.Error(error))
             } else {
                 VKSdk.authorize(scope)
             }
         }
     }
     
-    func friendsList(completion: @escaping (Result<[Friend]>) -> Void) {
+    func friendsList(completion: @escaping ResultFriendClosure) {
         
-        let friendsRequest = VKApi.friends().get(["fields":"id, first_name, last_name, photo_100"])
+        let friendsRequest = VKApi.friends().get([Constants.Keys.fields: Constants.Values.friendListFields])
         
         friendsRequest?.execute(resultBlock: { (response) in
-            let json = JSON(arrayLiteral: response!.json)
-            if let items = json[0].dictionary!["items"]?.arrayValue {
-                let result = items.flatMap({ (item) -> Friend? in
-                    if let friend = Friend(JSONString: item.description) {
-                        return friend
-                    }
-                    return nil
-                })
-                completion(.Success(result))
-            } else {
-                completion(.Error(NSError(domain:"", code:0, userInfo:nil)))
+            guard let responseJson = response?.json else {
+                return
             }
+
+            let json = JSON(arrayLiteral: responseJson)
+
+            guard let items = json.first?.1.dictionary?[Constants.items]?.arrayValue else {
+                completion(.Error(NSError(domain:"", code:0, userInfo:nil)))
+                return
+            }
+
+            let result = items.compactMap({ (item) -> Friend? in
+                if let friend = Friend(JSONString: item.description) {
+                    return friend
+                }
+                return nil
+            })
+            completion(.Success(result))
+
         }, errorBlock: { (error) in
-            if (error! as NSError).code != VK_API_ERROR {
-                (error! as NSError).vkError.request.repeat()
-                completion(.Error(error!))
+            guard let error = error else {
+                return
+            }
+            let nsError = error as NSError
+            if nsError.code != VK_API_ERROR {
+                nsError.vkError.request.repeat()
+                completion(.Error(error))
             } else {
-                completion(.Error(error!))
+                completion(.Error(error))
             }
         })
     }
     
-    func friend(with id: Int, completion: @escaping (Result<FriendDetail>) -> Void) {
+    func friend(with id: Int, completion: @escaping ResultFriendDetailClosure) {
         
-        let friendRequest = VKApi.users().get(["user_ids": id, "fields":"id, first_name, last_name, photo_200_orig, status, last_seen, city, friends_count, common_count, followers_count, photos_count, videos_count, counters"])
+        let friendRequest = VKApi.users().get([Constants.Keys.userIds: id,
+                                               Constants.Keys.fields: Constants.Values.friendFields])
         
         friendRequest?.execute(resultBlock: { (response) in
-            let json = JSON(arrayLiteral: response!.json)
+            guard let responseJson = response?.json else {
+                return
+            }
+            let json = JSON(arrayLiteral: responseJson)
             if let first = json.array?.first?.array?.first {
                 if let friendDetail = FriendDetail(JSONString: first.description) {
                     completion(.Success(friendDetail))
@@ -90,11 +120,15 @@ class VKManager: NSObject {
                 completion(.Error(NSError(domain:"", code:0, userInfo:nil)))
             }
         }, errorBlock: { (error) in
-            if (error! as NSError).code != VK_API_ERROR {
-                (error! as NSError).vkError.request.repeat()
-                completion(.Error(error!))
+            guard let error = error else {
+                return
+            }
+            let nsError = error as NSError
+            if nsError.code != VK_API_ERROR {
+                nsError.vkError.request.repeat()
+                completion(.Error(error))
             } else {
-                completion(.Error(error!))
+                completion(.Error(error))
             }
         })
     }
@@ -102,19 +136,19 @@ class VKManager: NSObject {
 
 extension VKManager: VKSdkDelegate {
     
-    func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
+    func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult) {
         if result.state == .authorized {
-            loginCompletion?(Result.Success(true))
-        } else if result.error != nil {
-            loginCompletion?(Result.Error(result.error))
+            onLogin?(.Success(true))
+        } else {
+            onLogin?(.Error(result.error))
         }
     }
     
-    func vkSdkAuthorizationStateUpdated(with result: VKAuthorizationResult!) {
+    func vkSdkAuthorizationStateUpdated(with result: VKAuthorizationResult) {
         if result.state == .authorized {
-            loginCompletion?(Result.Success(true))
-        } else if result.error != nil {
-            loginCompletion?(Result.Error(result.error))
+            onLogin?(.Success(true))
+        } else {
+            onLogin?(.Error(result.error))
         }
     }
     

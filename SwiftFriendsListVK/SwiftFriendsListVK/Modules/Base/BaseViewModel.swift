@@ -9,11 +9,13 @@
 import Foundation
 
 class BaseViewModel: NSObject {
+
+    // MARK: - Properties
     
     var alertMessage: String? {
         didSet {
             self.showAlertClosure?()
         }
     }
-    var showAlertClosure: (()->())?
+    var showAlertClosure: EmptyClosure?
 }

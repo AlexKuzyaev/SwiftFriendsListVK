@@ -10,24 +10,39 @@ import Foundation
 import RxSwift
 
 class FriendDetailViewModel: BaseViewModel {
-    var friend: Friend!
+
+    // MARK: - Properties
+
+    var friend: Friend
+
+    // MARK: - Initialization
+
+    init(friend: Friend) {
+        self.friend = friend
+        super.init()
+    }
 }
 
 extension FriendDetailViewModel {
+
+    // MARK: - Public Methods
     
     func fetchFriend() -> Observable<FriendDetail>{
         return Observable.create({ [weak self] (observer) -> Disposable in
-            if let weakSelf = self {
-                VKManager.instance.friend(with: weakSelf.friend.id) { (result) in
-                    switch result {
-                    case .Success(let friendDetail):
-                        observer.on(.next(friendDetail))
-                        observer.on(.completed)
-                    case .Error(let error):
-                        observer.on(.error(error))
-                    }
+            guard let weakSelf = self else {
+                return SingleAssignmentDisposable()
+            }
+
+            VKManager.instance.friend(with: weakSelf.friend.id) { (result) in
+                switch result {
+                case .Success(let friendDetail):
+                    observer.on(.next(friendDetail))
+                    observer.on(.completed)
+                case .Error(let error):
+                    observer.on(.error(error))
                 }
             }
+
             return SingleAssignmentDisposable()
         })
     }

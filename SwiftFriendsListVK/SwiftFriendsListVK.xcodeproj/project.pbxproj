@@ -7,20 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4A1ACF022111983700E16C21 /* Extension+UIViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ACF012111983700E16C21 /* Extension+UIViewControllerTests.swift */; };
-		4A1ACF0421119A7D00E16C21 /* Extension+UIButtonTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ACF0321119A7D00E16C21 /* Extension+UIButtonTests.swift */; };
-		4A1ACF0721119D3700E16C21 /* VKManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ACF0621119D3700E16C21 /* VKManagerTests.swift */; };
-		4A1ACF0A2111A06500E16C21 /* FriendTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ACF092111A06500E16C21 /* FriendTests.swift */; };
-		4A1ACF0C2111A06F00E16C21 /* FriendDetailTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ACF0B2111A06F00E16C21 /* FriendDetailTests.swift */; };
-		4A1ACF102111AB3F00E16C21 /* BaseViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ACF0F2111AB3F00E16C21 /* BaseViewControllerTests.swift */; };
-		4A1ACF122111AB5400E16C21 /* BaseViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ACF112111AB5400E16C21 /* BaseViewModelTests.swift */; };
-		4A1ACF152111B28A00E16C21 /* LoginViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ACF142111B28A00E16C21 /* LoginViewControllerTests.swift */; };
-		4A1ACF172111B29500E16C21 /* LoginViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ACF162111B29500E16C21 /* LoginViewModelTests.swift */; };
-		4A1ACF1A2111DCF600E16C21 /* FriendsListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ACF192111DCF600E16C21 /* FriendsListViewControllerTests.swift */; };
-		4A1ACF1C2111DD0300E16C21 /* FriendsListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ACF1B2111DD0300E16C21 /* FriendsListViewModelTests.swift */; };
-		4A1ACF202111E3AC00E16C21 /* FriendTableViewCellViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ACF1F2111E3AC00E16C21 /* FriendTableViewCellViewModelTests.swift */; };
-		4A1ACF222111E3BC00E16C21 /* FriendTableViewCellTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1ACF212111E3BC00E16C21 /* FriendTableViewCellTests.swift */; };
-		4A3D18FD211191E900089C07 /* FullNameProtocolTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A3D18FC211191E900089C07 /* FullNameProtocolTests.swift */; };
+		20450BDE248182360080B5DF /* Strings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20450BDD248182360080B5DF /* Strings.swift */; };
+		20450BE224818FC70080B5DF /* Closures.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20450BE124818FC70080B5DF /* Closures.swift */; };
+		20450BE4248198350080B5DF /* NSObject+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20450BE3248198350080B5DF /* NSObject+Extension.swift */; };
+		20450BE62481993B0080B5DF /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20450BE52481993B0080B5DF /* Enums.swift */; };
+		20450BE924819B470080B5DF /* FullNameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20450BE824819B470080B5DF /* FullNameProtocol.swift */; };
+		20450BEB24819FB30080B5DF /* LoginViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20450BEA24819FB30080B5DF /* LoginViewController.storyboard */; };
+		20450BED2481A1BE0080B5DF /* FriendsListViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20450BEC2481A1BE0080B5DF /* FriendsListViewController.storyboard */; };
+		20450BEF2481A1EA0080B5DF /* FriendDetailViewController.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 20450BEE2481A1EA0080B5DF /* FriendDetailViewController.storyboard */; };
 		4A660BD22110DE83009EB792 /* SwiftFriendsListVKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A660BD12110DE83009EB792 /* SwiftFriendsListVKTests.swift */; };
 		4AECE9E121077E8300E38BBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECE9E021077E8300E38BBA /* AppDelegate.swift */; };
 		4AECE9E321077E8300E38BBA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECE9E221077E8300E38BBA /* LoginViewController.swift */; };
@@ -32,7 +26,7 @@
 		4AECEA152107A4F400E38BBA /* VKManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECEA142107A4F400E38BBA /* VKManager.swift */; };
 		4AECEA1C21089D8400E38BBA /* FriendTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECEA1B21089D8400E38BBA /* FriendTableViewCell.swift */; };
 		4AECEA1E21089D8C00E38BBA /* FriendTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AECEA1D21089D8C00E38BBA /* FriendTableViewCell.xib */; };
-		4AECEA202108A58000E38BBA /* Extension+UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECEA1F2108A58000E38BBA /* Extension+UIViewController.swift */; };
+		4AECEA202108A58000E38BBA /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECEA1F2108A58000E38BBA /* UIViewController+Extension.swift */; };
 		4AECEA242108A88200E38BBA /* FriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECEA232108A88200E38BBA /* FriendsListViewController.swift */; };
 		4AECEA262108A88D00E38BBA /* FriendsListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECEA252108A88D00E38BBA /* FriendsListViewModel.swift */; };
 		4AECEA282108BCC400E38BBA /* FriendTableViewCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECEA272108BCC400E38BBA /* FriendTableViewCellViewModel.swift */; };
@@ -41,10 +35,9 @@
 		4AECEA2F2108D13200E38BBA /* FriendDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECEA2E2108D13200E38BBA /* FriendDetailViewModel.swift */; };
 		4AECEA312108D79200E38BBA /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECEA302108D79200E38BBA /* BaseViewController.swift */; };
 		4AECEA332108D9F100E38BBA /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECEA322108D9F100E38BBA /* Friend.swift */; };
-		4AECEA362108F3A700E38BBA /* FullNameProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECEA352108F3A700E38BBA /* FullNameProtocol.swift */; };
 		4AECEA382108F3C500E38BBA /* FriendDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECEA372108F3C500E38BBA /* FriendDetail.swift */; };
-		4AECEA3A2109128300E38BBA /* Extension+UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECEA392109128300E38BBA /* Extension+UIColor.swift */; };
-		4AECEA3C21091E7F00E38BBA /* Extension+UIButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECEA3B21091E7F00E38BBA /* Extension+UIButton.swift */; };
+		4AECEA3A2109128300E38BBA /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECEA392109128300E38BBA /* UIColor+Extension.swift */; };
+		4AECEA3C21091E7F00E38BBA /* UIButton+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECEA3B21091E7F00E38BBA /* UIButton+Extension.swift */; };
 		CA3A199F86226D9CC434421E /* Pods_SwiftFriendsListVK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08803F807D90D48BB1952E4F /* Pods_SwiftFriendsListVK.framework */; };
 		F66293F47160773E66A3C1DD /* Pods_SwiftFriendsListVKTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5940B1B24D64067FA38A3017 /* Pods_SwiftFriendsListVKTests.framework */; };
 /* End PBXBuildFile section */
@@ -61,21 +54,15 @@
 
 /* Begin PBXFileReference section */
 		08803F807D90D48BB1952E4F /* Pods_SwiftFriendsListVK.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftFriendsListVK.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		20450BDD248182360080B5DF /* Strings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Strings.swift; sourceTree = "<group>"; };
+		20450BE124818FC70080B5DF /* Closures.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Closures.swift; sourceTree = "<group>"; };
+		20450BE3248198350080B5DF /* NSObject+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSObject+Extension.swift"; sourceTree = "<group>"; };
+		20450BE52481993B0080B5DF /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		20450BE824819B470080B5DF /* FullNameProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullNameProtocol.swift; sourceTree = "<group>"; };
+		20450BEA24819FB30080B5DF /* LoginViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LoginViewController.storyboard; sourceTree = "<group>"; };
+		20450BEC2481A1BE0080B5DF /* FriendsListViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FriendsListViewController.storyboard; sourceTree = "<group>"; };
+		20450BEE2481A1EA0080B5DF /* FriendDetailViewController.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = FriendDetailViewController.storyboard; sourceTree = "<group>"; };
 		31BDBFAF2EE42DAB4A2C1D6D /* Pods-SwiftFriendsListVKTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftFriendsListVKTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftFriendsListVKTests/Pods-SwiftFriendsListVKTests.debug.xcconfig"; sourceTree = "<group>"; };
-		4A1ACF012111983700E16C21 /* Extension+UIViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewControllerTests.swift"; sourceTree = "<group>"; };
-		4A1ACF0321119A7D00E16C21 /* Extension+UIButtonTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIButtonTests.swift"; sourceTree = "<group>"; };
-		4A1ACF0621119D3700E16C21 /* VKManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKManagerTests.swift; sourceTree = "<group>"; };
-		4A1ACF092111A06500E16C21 /* FriendTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTests.swift; sourceTree = "<group>"; };
-		4A1ACF0B2111A06F00E16C21 /* FriendDetailTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDetailTests.swift; sourceTree = "<group>"; };
-		4A1ACF0F2111AB3F00E16C21 /* BaseViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewControllerTests.swift; sourceTree = "<group>"; };
-		4A1ACF112111AB5400E16C21 /* BaseViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModelTests.swift; sourceTree = "<group>"; };
-		4A1ACF142111B28A00E16C21 /* LoginViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewControllerTests.swift; sourceTree = "<group>"; };
-		4A1ACF162111B29500E16C21 /* LoginViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModelTests.swift; sourceTree = "<group>"; };
-		4A1ACF192111DCF600E16C21 /* FriendsListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListViewControllerTests.swift; sourceTree = "<group>"; };
-		4A1ACF1B2111DD0300E16C21 /* FriendsListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListViewModelTests.swift; sourceTree = "<group>"; };
-		4A1ACF1F2111E3AC00E16C21 /* FriendTableViewCellViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCellViewModelTests.swift; sourceTree = "<group>"; };
-		4A1ACF212111E3BC00E16C21 /* FriendTableViewCellTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCellTests.swift; sourceTree = "<group>"; };
-		4A3D18FC211191E900089C07 /* FullNameProtocolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullNameProtocolTests.swift; sourceTree = "<group>"; };
 		4A660BCF2110DE83009EB792 /* SwiftFriendsListVKTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SwiftFriendsListVKTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A660BD12110DE83009EB792 /* SwiftFriendsListVKTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftFriendsListVKTests.swift; sourceTree = "<group>"; };
 		4A660BD32110DE83009EB792 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -91,7 +78,7 @@
 		4AECEA142107A4F400E38BBA /* VKManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKManager.swift; sourceTree = "<group>"; };
 		4AECEA1B21089D8400E38BBA /* FriendTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCell.swift; sourceTree = "<group>"; };
 		4AECEA1D21089D8C00E38BBA /* FriendTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FriendTableViewCell.xib; sourceTree = "<group>"; };
-		4AECEA1F2108A58000E38BBA /* Extension+UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIViewController.swift"; sourceTree = "<group>"; };
+		4AECEA1F2108A58000E38BBA /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
 		4AECEA232108A88200E38BBA /* FriendsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListViewController.swift; sourceTree = "<group>"; };
 		4AECEA252108A88D00E38BBA /* FriendsListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListViewModel.swift; sourceTree = "<group>"; };
 		4AECEA272108BCC400E38BBA /* FriendTableViewCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendTableViewCellViewModel.swift; sourceTree = "<group>"; };
@@ -100,10 +87,9 @@
 		4AECEA2E2108D13200E38BBA /* FriendDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDetailViewModel.swift; sourceTree = "<group>"; };
 		4AECEA302108D79200E38BBA /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		4AECEA322108D9F100E38BBA /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
-		4AECEA352108F3A700E38BBA /* FullNameProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullNameProtocol.swift; sourceTree = "<group>"; };
 		4AECEA372108F3C500E38BBA /* FriendDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendDetail.swift; sourceTree = "<group>"; };
-		4AECEA392109128300E38BBA /* Extension+UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIColor.swift"; sourceTree = "<group>"; };
-		4AECEA3B21091E7F00E38BBA /* Extension+UIButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIButton.swift"; sourceTree = "<group>"; };
+		4AECEA392109128300E38BBA /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
+		4AECEA3B21091E7F00E38BBA /* UIButton+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Extension.swift"; sourceTree = "<group>"; };
 		5940B1B24D64067FA38A3017 /* Pods_SwiftFriendsListVKTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SwiftFriendsListVKTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		7F691E52357F9CBD68043DC1 /* Pods-SwiftFriendsListVK.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftFriendsListVK.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftFriendsListVK/Pods-SwiftFriendsListVK.debug.xcconfig"; sourceTree = "<group>"; };
 		95FD719C783D812F2C2AA605 /* Pods-SwiftFriendsListVK.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SwiftFriendsListVK.release.xcconfig"; path = "Pods/Target Support Files/Pods-SwiftFriendsListVK/Pods-SwiftFriendsListVK.release.xcconfig"; sourceTree = "<group>"; };
@@ -130,112 +116,46 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		4A1ACF0521119D2700E16C21 /* Network */ = {
+		20450BD8248181D60080B5DF /* Constants */ = {
 			isa = PBXGroup;
 			children = (
-				4A1ACF0621119D3700E16C21 /* VKManagerTests.swift */,
+				4AECEA0621077F4800E38BBA /* AppConstants.swift */,
+				20450BDD248182360080B5DF /* Strings.swift */,
+				20450BE124818FC70080B5DF /* Closures.swift */,
+				20450BE52481993B0080B5DF /* Enums.swift */,
 			);
-			path = Network;
+			path = Constants;
 			sourceTree = "<group>";
 		};
-		4A1ACF082111A05000E16C21 /* Model */ = {
+		20450BD9248181DB0080B5DF /* Assets */ = {
 			isa = PBXGroup;
 			children = (
-				4A1ACF092111A06500E16C21 /* FriendTests.swift */,
-				4A1ACF0B2111A06F00E16C21 /* FriendDetailTests.swift */,
+				4AECE9E721077E8300E38BBA /* Assets.xcassets */,
 			);
-			path = Model;
+			path = Assets;
 			sourceTree = "<group>";
 		};
-		4A1ACF0D2111AB2C00E16C21 /* Modules */ = {
+		20450BDA2481820C0080B5DF /* Application */ = {
 			isa = PBXGroup;
 			children = (
-				4A1ACF0E2111AB3300E16C21 /* Base */,
-				4A1ACF182111DCE200E16C21 /* FriendsList */,
-				4A1ACF132111B27200E16C21 /* Login */,
+				4AECE9E021077E8300E38BBA /* AppDelegate.swift */,
+				4AECE9EC21077E8300E38BBA /* Info.plist */,
 			);
-			path = Modules;
+			path = Application;
 			sourceTree = "<group>";
 		};
-		4A1ACF0E2111AB3300E16C21 /* Base */ = {
+		20450BE724819B3C0080B5DF /* Protocols */ = {
 			isa = PBXGroup;
 			children = (
-				4A1ACF0F2111AB3F00E16C21 /* BaseViewControllerTests.swift */,
-				4A1ACF112111AB5400E16C21 /* BaseViewModelTests.swift */,
-			);
-			path = Base;
-			sourceTree = "<group>";
-		};
-		4A1ACF132111B27200E16C21 /* Login */ = {
-			isa = PBXGroup;
-			children = (
-				4A1ACF142111B28A00E16C21 /* LoginViewControllerTests.swift */,
-				4A1ACF162111B29500E16C21 /* LoginViewModelTests.swift */,
-			);
-			path = Login;
-			sourceTree = "<group>";
-		};
-		4A1ACF182111DCE200E16C21 /* FriendsList */ = {
-			isa = PBXGroup;
-			children = (
-				4A1ACF192111DCF600E16C21 /* FriendsListViewControllerTests.swift */,
-				4A1ACF1B2111DD0300E16C21 /* FriendsListViewModelTests.swift */,
-			);
-			path = FriendsList;
-			sourceTree = "<group>";
-		};
-		4A1ACF1D2111DEDD00E16C21 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-				4A1ACF1E2111E39600E16C21 /* FriendTableViewCell */,
-			);
-			path = Views;
-			sourceTree = "<group>";
-		};
-		4A1ACF1E2111E39600E16C21 /* FriendTableViewCell */ = {
-			isa = PBXGroup;
-			children = (
-				4A1ACF1F2111E3AC00E16C21 /* FriendTableViewCellViewModelTests.swift */,
-				4A1ACF212111E3BC00E16C21 /* FriendTableViewCellTests.swift */,
-			);
-			path = FriendTableViewCell;
-			sourceTree = "<group>";
-		};
-		4A3D18F9211191AC00089C07 /* Utils */ = {
-			isa = PBXGroup;
-			children = (
-				4A3D18FA211191BD00089C07 /* Protocols */,
-				4A3D18FB211191C100089C07 /* Extensions */,
-			);
-			path = Utils;
-			sourceTree = "<group>";
-		};
-		4A3D18FA211191BD00089C07 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				4A3D18FC211191E900089C07 /* FullNameProtocolTests.swift */,
+				20450BE824819B470080B5DF /* FullNameProtocol.swift */,
 			);
 			path = Protocols;
-			sourceTree = "<group>";
-		};
-		4A3D18FB211191C100089C07 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				4A1ACF012111983700E16C21 /* Extension+UIViewControllerTests.swift */,
-				4A1ACF0321119A7D00E16C21 /* Extension+UIButtonTests.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 		4A660BD02110DE83009EB792 /* SwiftFriendsListVKTests */ = {
 			isa = PBXGroup;
 			children = (
 				4A660BD12110DE83009EB792 /* SwiftFriendsListVKTests.swift */,
-				4A3D18F9211191AC00089C07 /* Utils */,
-				4A1ACF0521119D2700E16C21 /* Network */,
-				4A1ACF082111A05000E16C21 /* Model */,
-				4A1ACF0D2111AB2C00E16C21 /* Modules */,
-				4A1ACF1D2111DEDD00E16C21 /* Views */,
 				4A660BD32110DE83009EB792 /* Info.plist */,
 			);
 			path = SwiftFriendsListVKTests;
@@ -264,25 +184,25 @@
 		4AECE9DF21077E8300E38BBA /* SwiftFriendsListVK */ = {
 			isa = PBXGroup;
 			children = (
-				4AECE9E021077E8300E38BBA /* AppDelegate.swift */,
+				20450BDA2481820C0080B5DF /* Application */,
 				4AECE9FF21077EE000E38BBA /* Utils */,
 				4AECE9FE21077EDC00E38BBA /* Network */,
 				4AECE9FD21077ED800E38BBA /* Model */,
 				4AECE9FC21077ED400E38BBA /* Modules */,
 				4AECE9FB21077ED100E38BBA /* Views */,
 				4AECE9FA21077ECB00E38BBA /* Storyboards */,
-				4AECE9F921077EC700E38BBA /* Resource */,
+				4AECE9F921077EC700E38BBA /* Resources */,
 			);
 			path = SwiftFriendsListVK;
 			sourceTree = "<group>";
 		};
-		4AECE9F921077EC700E38BBA /* Resource */ = {
+		4AECE9F921077EC700E38BBA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				4AECE9E721077E8300E38BBA /* Assets.xcassets */,
-				4AECE9EC21077E8300E38BBA /* Info.plist */,
+				20450BD9248181DB0080B5DF /* Assets */,
+				20450BD8248181D60080B5DF /* Constants */,
 			);
-			path = Resource;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		4AECE9FA21077ECB00E38BBA /* Storyboards */ = {
@@ -333,9 +253,8 @@
 		4AECE9FF21077EE000E38BBA /* Utils */ = {
 			isa = PBXGroup;
 			children = (
-				4AECEA0521077F3F00E38BBA /* Protocols */,
+				20450BE724819B3C0080B5DF /* Protocols */,
 				4AECEA0421077F3A00E38BBA /* Extensions */,
-				4AECEA0621077F4800E38BBA /* AppConstants.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -343,19 +262,12 @@
 		4AECEA0421077F3A00E38BBA /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				4AECEA1F2108A58000E38BBA /* Extension+UIViewController.swift */,
-				4AECEA392109128300E38BBA /* Extension+UIColor.swift */,
-				4AECEA3B21091E7F00E38BBA /* Extension+UIButton.swift */,
+				20450BE3248198350080B5DF /* NSObject+Extension.swift */,
+				4AECEA392109128300E38BBA /* UIColor+Extension.swift */,
+				4AECEA1F2108A58000E38BBA /* UIViewController+Extension.swift */,
+				4AECEA3B21091E7F00E38BBA /* UIButton+Extension.swift */,
 			);
 			path = Extensions;
-			sourceTree = "<group>";
-		};
-		4AECEA0521077F3F00E38BBA /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				4AECEA352108F3A700E38BBA /* FullNameProtocol.swift */,
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		4AECEA0E21079F7600E38BBA /* Login */ = {
@@ -363,6 +275,7 @@
 			children = (
 				4AECE9E221077E8300E38BBA /* LoginViewController.swift */,
 				4AECEA1021079FF900E38BBA /* LoginViewModel.swift */,
+				20450BEA24819FB30080B5DF /* LoginViewController.storyboard */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -382,6 +295,7 @@
 			children = (
 				4AECEA232108A88200E38BBA /* FriendsListViewController.swift */,
 				4AECEA252108A88D00E38BBA /* FriendsListViewModel.swift */,
+				20450BEC2481A1BE0080B5DF /* FriendsListViewController.storyboard */,
 			);
 			path = FriendsList;
 			sourceTree = "<group>";
@@ -391,6 +305,7 @@
 			children = (
 				4AECEA2C2108D12B00E38BBA /* FriendDetailViewController.swift */,
 				4AECEA2E2108D13200E38BBA /* FriendDetailViewModel.swift */,
+				20450BEE2481A1EA0080B5DF /* FriendDetailViewController.storyboard */,
 			);
 			path = FriendDetail;
 			sourceTree = "<group>";
@@ -473,7 +388,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0920;
-				LastUpgradeCheck = 0920;
+				LastUpgradeCheck = 1150;
 				ORGANIZATIONNAME = "Alexandr Kuzyaev";
 				TargetAttributes = {
 					4A660BCE2110DE83009EB792 = {
@@ -519,7 +434,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AECE9EB21077E8300E38BBA /* LaunchScreen.storyboard in Resources */,
+				20450BED2481A1BE0080B5DF /* FriendsListViewController.storyboard in Resources */,
 				4AECE9E821077E8300E38BBA /* Assets.xcassets in Resources */,
+				20450BEB24819FB30080B5DF /* LoginViewController.storyboard in Resources */,
+				20450BEF2481A1EA0080B5DF /* FriendDetailViewController.storyboard in Resources */,
 				4AECE9E621077E8300E38BBA /* Main.storyboard in Resources */,
 				4AECEA1E21089D8C00E38BBA /* FriendTableViewCell.xib in Resources */,
 			);
@@ -552,32 +470,30 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftFriendsListVKTests/Pods-SwiftFriendsListVKTests-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftFriendsListVKTests/Pods-SwiftFriendsListVKTests-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
 				"${BUILT_PRODUCTS_DIR}/VK-ios-sdk/VK_ios_sdk.framework",
-				"${BUILT_PRODUCTS_DIR}/Nimble/Nimble.framework",
-				"${BUILT_PRODUCTS_DIR}/Quick/Quick.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/VK_ios_sdk.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nimble.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Quick.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftFriendsListVKTests/Pods-SwiftFriendsListVKTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftFriendsListVKTests/Pods-SwiftFriendsListVKTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		AE9E2663A5F825397DE14B6F /* [CP] Check Pods Manifest.lock */ = {
@@ -604,10 +520,11 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SwiftFriendsListVK/Pods-SwiftFriendsListVK-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SwiftFriendsListVK/Pods-SwiftFriendsListVK-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
+				"${BUILT_PRODUCTS_DIR}/RxRelay/RxRelay.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -618,6 +535,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxRelay.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -625,7 +543,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SwiftFriendsListVK/Pods-SwiftFriendsListVK-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SwiftFriendsListVK/Pods-SwiftFriendsListVK-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -635,20 +553,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4A1ACF172111B29500E16C21 /* LoginViewModelTests.swift in Sources */,
-				4A1ACF0C2111A06F00E16C21 /* FriendDetailTests.swift in Sources */,
-				4A1ACF0421119A7D00E16C21 /* Extension+UIButtonTests.swift in Sources */,
-				4A1ACF152111B28A00E16C21 /* LoginViewControllerTests.swift in Sources */,
-				4A1ACF1C2111DD0300E16C21 /* FriendsListViewModelTests.swift in Sources */,
-				4A1ACF022111983700E16C21 /* Extension+UIViewControllerTests.swift in Sources */,
-				4A1ACF202111E3AC00E16C21 /* FriendTableViewCellViewModelTests.swift in Sources */,
-				4A1ACF222111E3BC00E16C21 /* FriendTableViewCellTests.swift in Sources */,
-				4A1ACF1A2111DCF600E16C21 /* FriendsListViewControllerTests.swift in Sources */,
-				4A1ACF0A2111A06500E16C21 /* FriendTests.swift in Sources */,
-				4A1ACF0721119D3700E16C21 /* VKManagerTests.swift in Sources */,
-				4A1ACF122111AB5400E16C21 /* BaseViewModelTests.swift in Sources */,
-				4A1ACF102111AB3F00E16C21 /* BaseViewControllerTests.swift in Sources */,
-				4A3D18FD211191E900089C07 /* FullNameProtocolTests.swift in Sources */,
 				4A660BD22110DE83009EB792 /* SwiftFriendsListVKTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -658,24 +562,28 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AECE9E321077E8300E38BBA /* LoginViewController.swift in Sources */,
+				20450BE924819B470080B5DF /* FullNameProtocol.swift in Sources */,
 				4AECEA1121079FF900E38BBA /* LoginViewModel.swift in Sources */,
+				20450BE4248198350080B5DF /* NSObject+Extension.swift in Sources */,
 				4AECEA242108A88200E38BBA /* FriendsListViewController.swift in Sources */,
-				4AECEA362108F3A700E38BBA /* FullNameProtocol.swift in Sources */,
 				4AECEA312108D79200E38BBA /* BaseViewController.swift in Sources */,
 				4AECEA282108BCC400E38BBA /* FriendTableViewCellViewModel.swift in Sources */,
 				4AECEA2F2108D13200E38BBA /* FriendDetailViewModel.swift in Sources */,
 				4AECEA0721077F4800E38BBA /* AppConstants.swift in Sources */,
+				20450BE62481993B0080B5DF /* Enums.swift in Sources */,
 				4AECEA262108A88D00E38BBA /* FriendsListViewModel.swift in Sources */,
-				4AECEA3A2109128300E38BBA /* Extension+UIColor.swift in Sources */,
+				4AECEA3A2109128300E38BBA /* UIColor+Extension.swift in Sources */,
 				4AECEA2D2108D12B00E38BBA /* FriendDetailViewController.swift in Sources */,
 				4AECEA332108D9F100E38BBA /* Friend.swift in Sources */,
+				20450BDE248182360080B5DF /* Strings.swift in Sources */,
 				4AECEA1C21089D8400E38BBA /* FriendTableViewCell.swift in Sources */,
 				4AECEA2B2108D00A00E38BBA /* BaseViewModel.swift in Sources */,
-				4AECEA202108A58000E38BBA /* Extension+UIViewController.swift in Sources */,
-				4AECEA3C21091E7F00E38BBA /* Extension+UIButton.swift in Sources */,
+				4AECEA202108A58000E38BBA /* UIViewController+Extension.swift in Sources */,
+				4AECEA3C21091E7F00E38BBA /* UIButton+Extension.swift in Sources */,
 				4AECEA382108F3C500E38BBA /* FriendDetail.swift in Sources */,
 				4AECEA152107A4F400E38BBA /* VKManager.swift in Sources */,
 				4AECE9E121077E8300E38BBA /* AppDelegate.swift in Sources */,
+				20450BE224818FC70080B5DF /* Closures.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -720,7 +628,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexKuzyaev.SwiftFriendsListVKTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftFriendsListVK.app/SwiftFriendsListVK";
 			};
@@ -737,7 +645,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexKuzyaev.SwiftFriendsListVKTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SwiftFriendsListVK.app/SwiftFriendsListVK";
 			};
@@ -757,6 +665,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -764,6 +673,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -791,12 +701,13 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -814,6 +725,7 @@
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -821,6 +733,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -842,10 +755,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -857,11 +771,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SCYJVJ34MJ;
-				INFOPLIST_FILE = SwiftFriendsListVK/Resource/Info.plist;
+				INFOPLIST_FILE = SwiftFriendsListVK/Application/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexKuzyaev.SwiftFriendsListVK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -873,11 +788,12 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SCYJVJ34MJ;
-				INFOPLIST_FILE = SwiftFriendsListVK/Resource/Info.plist;
+				INFOPLIST_FILE = SwiftFriendsListVK/Application/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexKuzyaev.SwiftFriendsListVK;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;

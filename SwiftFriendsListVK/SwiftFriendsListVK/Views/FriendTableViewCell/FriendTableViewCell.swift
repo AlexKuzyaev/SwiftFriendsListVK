@@ -10,13 +10,17 @@ import UIKit
 import SDWebImage
 
 class FriendTableViewCell: UITableViewCell {
+
+    // MARK: - IBOutlets
     
-    @IBOutlet weak var avatarImageView: UIImageView!
-    @IBOutlet weak var labelName: UILabel!
+    @IBOutlet private weak var avatarImageView: UIImageView!
+    @IBOutlet private weak var labelName: UILabel!
+
+    // MARK: - Public Methods
     
     func update(avatarUrl: URL?, name: String, complition: SDExternalCompletionBlock? = nil) {
-        if avatarUrl != nil {
-            avatarImageView.sd_setImage(with: avatarUrl!, completed: complition)
+        if let avatarUrl = avatarUrl {
+            avatarImageView.sd_setImage(with: avatarUrl, completed: complition)
         }
         labelName.text = name
     }

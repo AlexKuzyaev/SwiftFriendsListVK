@@ -9,10 +9,12 @@
 import Foundation
 
 class FriendsListViewModel: BaseViewModel {
+
+    // MARK: - Private Properties
     
     private var friends = [Friend]() {
         didSet {
-            cellViewModels = friends.flatMap({ (friend) -> FriendTableViewCellViewModel? in
+            cellViewModels = friends.compactMap({ (friend) -> FriendTableViewCellViewModel? in
                 return createCellViewModel(friend: friend)
             })
         }
@@ -23,6 +25,8 @@ class FriendsListViewModel: BaseViewModel {
             self.reloadTableViewClosure?()
         }
     }
+
+    // MARK: - Properties
     
     var selectedFriend: Friend?
     
@@ -30,27 +34,14 @@ class FriendsListViewModel: BaseViewModel {
         return cellViewModels.count
     }
     
-    var reloadTableViewClosure: (()->())?
-    
+    var reloadTableViewClosure: EmptyClosure?
+
+    // MARK: - Public Methods
+
     func getCellViewModel(at indexPath: IndexPath ) -> FriendTableViewCellViewModel {
         return cellViewModels[indexPath.row]
     }
-    
-    private func createCellViewModel(friend: Friend) -> FriendTableViewCellViewModel? {
-        let url = URL(string: friend.avatarUrl)
-        return FriendTableViewCellViewModel(name: friend.getFullName(), avatarUrl: url)
-    }
-    
-    func friendPressed(at indexPath: IndexPath ){
-        let friend = self.friends[indexPath.row]
-        if friend.firstName != "DELETED" {
-            self.selectedFriend = friend
-        }
-    }
-}
 
-extension FriendsListViewModel {
-    
     func fetchFriends() {
         VKManager.instance.friendsList { [weak self] (result) in
             switch result {
@@ -62,5 +53,22 @@ extension FriendsListViewModel {
                 break
             }
         }
+    }
+
+    func friendPressed(at indexPath: IndexPath ){
+        let friend = self.friends[indexPath.row]
+        if !friend.isDeleted {
+            self.selectedFriend = friend
+        }
+    }
+}
+
+// MARK: - Private Methods
+
+private extension FriendsListViewModel {
+
+    func createCellViewModel(friend: Friend) -> FriendTableViewCellViewModel? {
+        let url = URL(string: friend.avatarUrl)
+        return FriendTableViewCellViewModel(name: friend.getFullName(), avatarUrl: url)
     }
 }

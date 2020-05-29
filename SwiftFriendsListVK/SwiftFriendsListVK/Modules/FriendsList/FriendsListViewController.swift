@@ -10,73 +10,58 @@ import UIKit
 import PKHUD
 
 class FriendsListViewController: BaseViewController {
+
+    // MARK: - IBOutlets
+
+    private enum Constants {
+        static let cellHeight: CGFloat = 80.0
+    }
+
+    // MARK: - IBOutlets
     
-    @IBOutlet public weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
+
+    // MARK: - Public Properties
+
+    let viewModel = FriendsListViewModel()
+
+    // MARK: - Private Properties
     
     private lazy var refreshControl: UIRefreshControl = {
         let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self, action:
-            #selector(handleRefresh(_:)),
-                                 for: UIControlEvents.valueChanged)
+        refreshControl.addTarget(self,
+                                 action: #selector(handleRefresh(_:)),
+                                 for: UIControl.Event.valueChanged)
         refreshControl.tintColor = UIColor.appColor
         
         return refreshControl
     }()
-        
-    let viewModel = FriendsListViewModel()
-    private let cellReuseIdentifier = "friendTableViewCell"
-    
-    class func instance() -> FriendsListViewController {
-        return Storyboard.main.instantiateViewController(withIdentifier: "FriendsListViewController") as! FriendsListViewController
+
+    // MARK: - Static Methods
+
+    static func instance() -> FriendsListViewController? {
+        return UIStoryboard(name: String(describing: FriendsListViewController.self),
+                            bundle: nil).instantiateInitialViewController() as? FriendsListViewController
     }
+
+    // MARK: - UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.        
-        initView()
-        initViewModel()
+        configureView()
+        configureViewModel()
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
-    private func initView() {
-        tableView.register(UINib(nibName: Nib.friendTableViewCell, bundle: nil), forCellReuseIdentifier: cellReuseIdentifier)
-        tableView.tableFooterView = UIView()
-        tableView.addSubview(refreshControl)
-    }
-    
-    private func initViewModel() {
-        viewModel.showAlertClosure = { [weak self] in
-            DispatchQueue.main.async {
-                HUD.flash(.error, delay: 0.3)
-                self?.refreshControl.endRefreshing()
-                if let message = self?.viewModel.alertMessage {
-                    self?.showAlert(alertTitle: "Error", message: message)
-                }
-            }
-        }
-        
-        viewModel.reloadTableViewClosure = { [weak self] () in
-            DispatchQueue.main.async {
-                HUD.flash(.success, delay: 0.3)
-                self?.refreshControl.endRefreshing()
-                self?.tableView.reloadData()
-            }
-        }
-        
-        HUD.show(.progress)
-        viewModel.fetchFriends()
-    }
+
+    // MARK: - Other
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
         viewModel.fetchFriends()
     }
     
     fileprivate func showFriendsDetailController(friend: Friend) {
-        let controller = FriendDetailViewController.instance(friend: friend)
+        guard let controller = FriendDetailViewController.instance(friend: friend) else {
+            return
+        }
         navigationController?.pushViewController(controller, animated: true)
     }
     
@@ -85,13 +70,14 @@ class FriendsListViewController: BaseViewController {
     }
 }
 
+// MARK: - UITableViewDelegate & UITableViewDataSource
+
 extension FriendsListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellReuseIdentifier, for: indexPath) as? FriendTableViewCell else {
-            fatalError("Cell not exists in storyboard")
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: FriendTableViewCell.className, for: indexPath) as? FriendTableViewCell else {
+            return UITableViewCell()
         }
-        
         let cellViewModel = viewModel.getCellViewModel(at: indexPath )
         cell.update(avatarUrl: cellViewModel.avatarUrl, name: cellViewModel.name)
         return cell
@@ -105,7 +91,7 @@ extension FriendsListViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 80.0
+        return Constants.cellHeight
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -118,5 +104,40 @@ extension FriendsListViewController: UITableViewDelegate, UITableViewDataSource 
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
+    }
+}
+
+// MARK: - Private Methods
+
+private extension FriendsListViewController {
+
+    func configureView() {
+        tableView.register(UINib(nibName: Nib.friendTableViewCell, bundle: nil),
+                           forCellReuseIdentifier: FriendTableViewCell.className)
+        tableView.tableFooterView = UIView()
+        tableView.addSubview(refreshControl)
+    }
+
+    func configureViewModel() {
+        viewModel.showAlertClosure = { [weak self] in
+            DispatchQueue.main.async {
+                self?.hudFlash(content: .error)
+                self?.refreshControl.endRefreshing()
+                if let message = self?.viewModel.alertMessage {
+                    self?.showAlert(alertTitle: Strings.error, message: message)
+                }
+            }
+        }
+
+        viewModel.reloadTableViewClosure = { [weak self] () in
+            DispatchQueue.main.async {
+                self?.hudFlash(content: .success)
+                self?.refreshControl.endRefreshing()
+                self?.tableView.reloadData()
+            }
+        }
+
+        HUD.show(.progress)
+        viewModel.fetchFriends()
     }
 }

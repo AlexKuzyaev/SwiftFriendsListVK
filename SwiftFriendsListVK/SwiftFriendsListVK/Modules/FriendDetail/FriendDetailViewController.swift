@@ -8,9 +8,10 @@
 
 import UIKit
 import RxSwift
-import PKHUD
 
 class FriendDetailViewController: BaseViewController {
+
+    // MARK: - IBOutlets
     
     @IBOutlet fileprivate weak var avatarImageView: UIImageView!
     @IBOutlet fileprivate weak var labelName: UILabel!
@@ -21,85 +22,99 @@ class FriendDetailViewController: BaseViewController {
     @IBOutlet fileprivate weak var labelFollowers: UILabel!
     @IBOutlet fileprivate weak var labelPhotos: UILabel!
     @IBOutlet fileprivate weak var labelVideos: UILabel!
-    
-    var friend: Friend! {
-        didSet {
-            viewModel.friend = friend
-        }
+
+    // MARK: - Private Properties
+
+    private var viewModel: FriendDetailViewModel?
+    private let disposeBag = DisposeBag()
+
+    // MARK: - IBActions
+
+    @IBAction func messageButtonTapped(_ sender: UIButton) {
+        sender.animateTap()
     }
 
-    private let viewModel = FriendDetailViewModel()
-    private let disposeBag = DisposeBag()
-    
-    class func instance(friend: Friend) -> FriendDetailViewController {
-        let controller = Storyboard.main.instantiateViewController(withIdentifier: "FriendDetailViewController") as! FriendDetailViewController
-        controller.friend = friend
+    @IBAction func friendsButtonTapped(_ sender: UIButton) {
+        sender.animateTap()
+    }
+
+    // MARK: - Static Methods
+
+    class func instance(friend: Friend) -> FriendDetailViewController? {
+        let controller = UIStoryboard(name: String(describing: FriendDetailViewController.self),
+                                      bundle: nil).instantiateInitialViewController() as? FriendDetailViewController
+        controller?.viewModel = FriendDetailViewModel(friend: friend)
         return controller
     }
+
+    // MARK: - Static Methods
+
+    static func instance() -> FriendsListViewController? {
+        return UIStoryboard(name: String(describing: FriendsListViewController.self),
+                            bundle: nil).instantiateInitialViewController() as? FriendsListViewController
+    }
+
+    // MARK: - UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initViewModel()
     }
-    
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    @IBAction func messageButtonTapped(_ sender: UIButton) {
-        sender.animateTap()
-    }
-    
-    @IBAction func friendsButtonTapped(_ sender: UIButton) {
-        sender.animateTap()
-    }
-    
-    private func initViewModel() {
-        viewModel.showAlertClosure = { [weak self] in
+}
+
+// MARK: - Private Methods
+
+private extension FriendDetailViewController {
+
+    func initViewModel() {
+        viewModel?.showAlertClosure = { [weak self] in
             DispatchQueue.main.async {
-                if let message = self?.viewModel.alertMessage {
-                    self?.showAlert(alertTitle: "Error", message: message)
+                guard let message = self?.viewModel?.alertMessage else {
+                    return
                 }
+                self?.showAlert(alertTitle: Strings.error, message: message)
             }
         }
-        
-        HUD.show(.progress)
-        viewModel.fetchFriend().subscribe { [weak self] (event) in
-            if let friendDetail = event.element {
-                DispatchQueue.main.async {
-                    HUD.flash(.success, delay: 1.0)
-                    if let avatarUrl = URL(string: friendDetail.avatarOrigUrl) {
-                        self?.avatarImageView.sd_setImage(with: avatarUrl, completed: nil)
-                    }
-                    self?.title = friendDetail.firstName
-                    self?.labelName.text = friendDetail.getFullName()
-                    if let dateTime = friendDetail.getDateTimeString() {
-                        self?.labelSeen.text = "last seen \(dateTime)"
-                    } else {
-                        self?.labelSeen.text = ""
-                    }
-                    if let city = friendDetail.city {
-                        self?.labelCity.text = city
-                    }
-                    if let friendsCount = friendDetail.friends_count {
-                        self?.labelFriends.text = "\(friendsCount)"
-                    }
-                    if let commonCount = friendDetail.common_count {
-                        self?.labelCommon.text = "\(commonCount)"
-                    }
-                    if let followersCount = friendDetail.followers_count {
-                        self?.labelFollowers.text = "\(followersCount)"
-                    }
-                    if let photosCount = friendDetail.photos_count {
-                        self?.labelPhotos.text = "\(photosCount)"
-                    }
-                    if let videosCount = friendDetail.videos_count {
-                        self?.labelVideos.text = "\(videosCount)"
-                    }
+
+        hudShowProgress()
+        viewModel?.fetchFriend().subscribe { [weak self] (event) in
+
+            guard let friendDetail = event.element else {
+                return
+            }
+
+            DispatchQueue.main.async {
+                self?.hudFlash(content: .success)
+                if let avatarUrl = URL(string: friendDetail.avatarOrigUrl) {
+                    self?.avatarImageView.sd_setImage(with: avatarUrl, completed: nil)
+                }
+                self?.title = friendDetail.firstName
+                self?.labelName.text = friendDetail.getFullName()
+                if let dateTime = friendDetail.dateTimeString {
+                    self?.labelSeen.text = "last seen \(dateTime)"
+                } else {
+                    self?.labelSeen.text = ""
+                }
+                if let city = friendDetail.city {
+                    self?.labelCity.text = city
+                }
+                if let friendsCount = friendDetail.friendsCount {
+                    self?.labelFriends.text = "\(friendsCount)"
+                }
+                if let commonCount = friendDetail.commonCount {
+                    self?.labelCommon.text = "\(commonCount)"
+                }
+                if let followersCount = friendDetail.followersCount {
+                    self?.labelFollowers.text = "\(followersCount)"
+                }
+                if let photosCount = friendDetail.photosCount {
+                    self?.labelPhotos.text = "\(photosCount)"
+                }
+                if let videosCount = friendDetail.videosCount {
+                    self?.labelVideos.text = "\(videosCount)"
                 }
             }
+
         }.disposed(by: disposeBag)
     }
-    
-    
 }

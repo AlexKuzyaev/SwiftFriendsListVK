@@ -7,56 +7,73 @@
 //
 
 import UIKit
-import PKHUD
 import VK_ios_sdk
 
 class LoginViewController: BaseViewController {
+
+    // MARK: - Private Properties
     
     private let viewModel = LoginViewModel()
+
+    // MARK: - IBActions
+
+    @IBAction func loginButtonTapped(_ sender: UIButton) {
+        sender.animateTap()
+        hudShowProgress()
+        viewModel.vkLogin()
+    }
+
+    // MARK: - Static Methods
+
+    static func instance() -> LoginViewController? {
+        return UIStoryboard(name: String(describing: LoginViewController.self),
+                            bundle: nil).instantiateInitialViewController() as? LoginViewController
+    }
+
+    // MARK: - UIViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
         initViewModel()
     }
+}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-    }
-    
-    @IBAction func loginButtonTapped(_ sender: UIButton) {
-        sender.animateTap()
-        HUD.show(.progress)
-        viewModel.vkLogin()
-    }
-    
-    private func initViewModel() {
-        
+// MARK: - Private Methods
+
+private extension LoginViewController {
+
+    func initViewModel() {
+
         viewModel.showAlertClosure = { [weak self] in
             DispatchQueue.main.async {
-                HUD.flash(.error, delay: 0.5)
+                self?.hudFlash(content: .error)
                 if let message = self?.viewModel.alertMessage {
-                    self?.showAlert(alertTitle: "Error", message: message)
+                    self?.showAlert(alertTitle: Strings.error, message: message)
                 }
             }
         }
-        
-        viewModel.successLogin = { [weak self] in
+
+        viewModel.onSuccessLogin = { [weak self] in
             DispatchQueue.main.async {
-                HUD.flash(.success, delay: 0.5)
+                self?.hudFlash(content: .success)
                 self?.showFriendsListController()
             }
         }
     }
-    
-    private func showFriendsListController() {
-        let controller = FriendsListViewController.instance()
+
+    func showFriendsListController() {
+        guard let controller = FriendsListViewController.instance() else {
+            return
+        }
         navigationController?.pushViewController(controller, animated: true)
     }
 }
 
+// MARK: - VKSdkDelegate
+
 extension LoginViewController: VKSdkDelegate {
     
-    func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult!) {
+    func vkSdkAccessAuthorizationFinished(with result: VKAuthorizationResult) {
         if result.state == .authorized {
             
         } else if result.error != nil {
@@ -65,6 +82,6 @@ extension LoginViewController: VKSdkDelegate {
     }
     
     func vkSdkUserAuthorizationFailed() {
-        
+        showAlert(alertTitle: Strings.error, message: Strings.errorUserAutorization)
     }
 }

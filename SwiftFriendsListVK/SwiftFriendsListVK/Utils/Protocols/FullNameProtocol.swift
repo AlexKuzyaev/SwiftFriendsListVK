@@ -2,24 +2,31 @@
 //  FullNameProtocol.swift
 //  SwiftFriendsListVK
 //
-//  Created by Александр Кузяев on 25.07.18.
-//  Copyright © 2018 Alexandr Kuzyaev. All rights reserved.
+//  Created by Александр Кузяев on 30.05.2020.
+//  Copyright © 2020 Alexandr Kuzyaev. All rights reserved.
 //
 
 import Foundation
 
 protocol FullNameProtocol {
-    
+
+    // MARK: -  Public Properties
+
     var firstName: String! { get }
     var lastName: String! { get }
-    
+
+    // MARK: -  Public Methods
+
     func getFullName() -> String
 }
 
+// MARK: -  Public Methods Realization
+
 extension FullNameProtocol {
+
     func getFullName() -> String {
-        let firstNameExists = firstName != nil && firstName != ""
-        let lastNameExists = lastName != nil && lastName != ""
+        let firstNameExists = firstName != nil && !firstName.isEmpty
+        let lastNameExists = lastName != nil && !lastName.isEmpty
         if firstNameExists && lastNameExists {
             return "\(firstName!) \(lastName!)"
         } else if firstNameExists {
