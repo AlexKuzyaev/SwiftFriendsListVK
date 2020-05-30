@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FriendsListViewController: BaseViewController {
+final class FriendsListViewController: BaseViewController {
 
     // MARK: - IBOutlets
 

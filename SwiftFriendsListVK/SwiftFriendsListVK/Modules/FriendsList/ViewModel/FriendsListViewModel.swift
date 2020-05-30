@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FriendsListViewModel: BaseViewModel {
+final class FriendsListViewModel: BaseViewModel {
 
     // MARK: - Private Properties
 

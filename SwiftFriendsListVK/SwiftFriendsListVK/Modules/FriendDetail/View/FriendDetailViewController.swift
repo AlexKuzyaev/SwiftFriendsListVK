@@ -9,7 +9,7 @@
 import UIKit
 import RxSwift
 
-class FriendDetailViewController: BaseViewController {
+final class FriendDetailViewController: BaseViewController {
 
     // MARK: - IBOutlets
     

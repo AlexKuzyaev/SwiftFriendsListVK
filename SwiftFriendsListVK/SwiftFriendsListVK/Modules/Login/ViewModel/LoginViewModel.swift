@@ -8,7 +8,7 @@
 
 import Foundation
 
-class LoginViewModel: BaseViewModel {
+final class LoginViewModel: BaseViewModel {
 
     // MARK: - Private Properties
 

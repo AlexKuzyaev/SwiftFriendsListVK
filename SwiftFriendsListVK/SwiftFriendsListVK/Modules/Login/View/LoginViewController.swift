@@ -9,7 +9,7 @@
 import UIKit
 import VK_ios_sdk
 
-class LoginViewController: BaseViewController {
+final class LoginViewController: BaseViewController {
 
     // MARK: - Private Properties
     

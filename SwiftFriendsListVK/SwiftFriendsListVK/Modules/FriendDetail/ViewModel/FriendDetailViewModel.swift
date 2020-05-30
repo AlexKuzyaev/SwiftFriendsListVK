@@ -9,7 +9,7 @@
 import Foundation
 import RxSwift
 
-class FriendDetailViewModel: BaseViewModel {
+final class FriendDetailViewModel: BaseViewModel {
 
     // MARK: - Properties
 

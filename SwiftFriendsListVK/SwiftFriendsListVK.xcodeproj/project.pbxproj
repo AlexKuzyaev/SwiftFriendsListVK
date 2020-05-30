@@ -20,7 +20,6 @@
 		4A660BD22110DE83009EB792 /* SwiftFriendsListVKTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A660BD12110DE83009EB792 /* SwiftFriendsListVKTests.swift */; };
 		4AECE9E121077E8300E38BBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECE9E021077E8300E38BBA /* AppDelegate.swift */; };
 		4AECE9E321077E8300E38BBA /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECE9E221077E8300E38BBA /* LoginViewController.swift */; };
-		4AECE9E621077E8300E38BBA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AECE9E421077E8300E38BBA /* Main.storyboard */; };
 		4AECE9E821077E8300E38BBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AECE9E721077E8300E38BBA /* Assets.xcassets */; };
 		4AECE9EB21077E8300E38BBA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AECE9E921077E8300E38BBA /* LaunchScreen.storyboard */; };
 		4AECEA0721077F4800E38BBA /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AECEA0621077F4800E38BBA /* AppConstants.swift */; };
@@ -73,7 +72,6 @@
 		4AECE9DD21077E8300E38BBA /* SwiftFriendsListVK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftFriendsListVK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AECE9E021077E8300E38BBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AECE9E221077E8300E38BBA /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
-		4AECE9E521077E8300E38BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4AECE9E721077E8300E38BBA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AECE9EA21077E8300E38BBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4AECE9EC21077E8300E38BBA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -166,6 +164,57 @@
 			path = "Base Classes";
 			sourceTree = "<group>";
 		};
+		208E72DC2482C11C00B32238 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4AECEA2C2108D12B00E38BBA /* FriendDetailViewController.swift */,
+				20450BEE2481A1EA0080B5DF /* FriendDetailViewController.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		208E72DD2482C12000B32238 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4AECEA2E2108D13200E38BBA /* FriendDetailViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		208E72DE2482C17000B32238 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4AECEA252108A88D00E38BBA /* FriendsListViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		208E72DF2482C17400B32238 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4AECEA232108A88200E38BBA /* FriendsListViewController.swift */,
+				20450BEC2481A1BE0080B5DF /* FriendsListViewController.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		208E72E02482C17E00B32238 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4AECE9E221077E8300E38BBA /* LoginViewController.swift */,
+				20450BEA24819FB30080B5DF /* LoginViewController.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		208E72E12482C18200B32238 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				4AECEA1021079FF900E38BBA /* LoginViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		4A660BD02110DE83009EB792 /* SwiftFriendsListVKTests */ = {
 			isa = PBXGroup;
 			children = (
@@ -223,7 +272,6 @@
 			isa = PBXGroup;
 			children = (
 				4AECE9E921077E8300E38BBA /* LaunchScreen.storyboard */,
-				4AECE9E421077E8300E38BBA /* Main.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -288,9 +336,8 @@
 		4AECEA0E21079F7600E38BBA /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				4AECE9E221077E8300E38BBA /* LoginViewController.swift */,
-				4AECEA1021079FF900E38BBA /* LoginViewModel.swift */,
-				20450BEA24819FB30080B5DF /* LoginViewController.storyboard */,
+				208E72E12482C18200B32238 /* ViewModel */,
+				208E72E02482C17E00B32238 /* View */,
 			);
 			path = Login;
 			sourceTree = "<group>";
@@ -308,9 +355,8 @@
 		4AECEA212108A86500E38BBA /* FriendsList */ = {
 			isa = PBXGroup;
 			children = (
-				4AECEA232108A88200E38BBA /* FriendsListViewController.swift */,
-				4AECEA252108A88D00E38BBA /* FriendsListViewModel.swift */,
-				20450BEC2481A1BE0080B5DF /* FriendsListViewController.storyboard */,
+				208E72DE2482C17000B32238 /* ViewModel */,
+				208E72DF2482C17400B32238 /* View */,
 			);
 			path = FriendsList;
 			sourceTree = "<group>";
@@ -318,9 +364,8 @@
 		4AECEA222108A86A00E38BBA /* FriendDetail */ = {
 			isa = PBXGroup;
 			children = (
-				4AECEA2C2108D12B00E38BBA /* FriendDetailViewController.swift */,
-				4AECEA2E2108D13200E38BBA /* FriendDetailViewModel.swift */,
-				20450BEE2481A1EA0080B5DF /* FriendDetailViewController.storyboard */,
+				208E72DD2482C12000B32238 /* ViewModel */,
+				208E72DC2482C11C00B32238 /* View */,
 			);
 			path = FriendDetail;
 			sourceTree = "<group>";
@@ -444,7 +489,6 @@
 				4AECE9E821077E8300E38BBA /* Assets.xcassets in Resources */,
 				20450BEB24819FB30080B5DF /* LoginViewController.storyboard in Resources */,
 				20450BEF2481A1EA0080B5DF /* FriendDetailViewController.storyboard in Resources */,
-				4AECE9E621077E8300E38BBA /* Main.storyboard in Resources */,
 				4AECEA1E21089D8C00E38BBA /* FriendTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -606,14 +650,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		4AECE9E421077E8300E38BBA /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				4AECE9E521077E8300E38BBA /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		4AECE9E921077E8300E38BBA /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (

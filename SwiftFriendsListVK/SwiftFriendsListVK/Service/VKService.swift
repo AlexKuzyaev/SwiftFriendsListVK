@@ -10,7 +10,7 @@ import Foundation
 import VK_ios_sdk
 import SwiftyJSON
 
-class VKService: NSObject {
+final class VKService: NSObject {
 
     // MARK: - Constants
 

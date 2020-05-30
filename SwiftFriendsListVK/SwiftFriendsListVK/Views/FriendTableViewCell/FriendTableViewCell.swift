@@ -9,7 +9,7 @@
 import UIKit
 import SDWebImage
 
-class FriendTableViewCell: UITableViewCell {
+final class FriendTableViewCell: UITableViewCell {
 
     // MARK: - IBOutlets
     
