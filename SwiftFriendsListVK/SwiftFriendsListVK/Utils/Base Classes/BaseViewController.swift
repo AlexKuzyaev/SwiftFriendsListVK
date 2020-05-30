@@ -38,6 +38,7 @@ extension BaseViewController: VKSdkUIDelegate {
     }
     
     func vkSdkNeedCaptchaEnter(_ captchaError: VKError) {
-        
+        let vkCaptchaViewController = VKCaptchaViewController()
+        vkCaptchaViewController.present(in: self)
     }
 }

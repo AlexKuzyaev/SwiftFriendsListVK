@@ -13,15 +13,15 @@ class FriendDetailViewController: BaseViewController {
 
     // MARK: - IBOutlets
     
-    @IBOutlet fileprivate weak var avatarImageView: UIImageView!
-    @IBOutlet fileprivate weak var labelName: UILabel!
-    @IBOutlet fileprivate weak var labelSeen: UILabel!
-    @IBOutlet fileprivate weak var labelCity: UILabel!
-    @IBOutlet fileprivate weak var labelFriends: UILabel!
-    @IBOutlet fileprivate weak var labelCommon: UILabel!
-    @IBOutlet fileprivate weak var labelFollowers: UILabel!
-    @IBOutlet fileprivate weak var labelPhotos: UILabel!
-    @IBOutlet fileprivate weak var labelVideos: UILabel!
+    @IBOutlet private weak var avatarImageView: UIImageView!
+    @IBOutlet private weak var labelName: UILabel!
+    @IBOutlet private weak var labelSeen: UILabel!
+    @IBOutlet private weak var labelCity: UILabel!
+    @IBOutlet private weak var labelFriends: UILabel!
+    @IBOutlet private weak var labelCommon: UILabel!
+    @IBOutlet private weak var labelFollowers: UILabel!
+    @IBOutlet private weak var labelPhotos: UILabel!
+    @IBOutlet private weak var labelVideos: UILabel!
 
     // MARK: - Private Properties
 
@@ -30,20 +30,20 @@ class FriendDetailViewController: BaseViewController {
 
     // MARK: - IBActions
 
-    @IBAction func messageButtonTapped(_ sender: UIButton) {
+    @IBAction private func messageButtonTapped(_ sender: UIButton) {
         sender.animateTap()
     }
 
-    @IBAction func friendsButtonTapped(_ sender: UIButton) {
+    @IBAction private func friendsButtonTapped(_ sender: UIButton) {
         sender.animateTap()
     }
 
-    // MARK: - Static Methods
+    // MARK: - Class Methods
 
-    class func instance(friend: Friend) -> FriendDetailViewController? {
+    class func instance(viewModel: FriendDetailViewModel) -> FriendDetailViewController? {
         let controller = UIStoryboard(name: String(describing: FriendDetailViewController.self),
                                       bundle: nil).instantiateInitialViewController() as? FriendDetailViewController
-        controller?.viewModel = FriendDetailViewModel(friend: friend)
+        controller?.viewModel = viewModel
         return controller
     }
 
@@ -85,33 +85,22 @@ private extension FriendDetailViewController {
 
             DispatchQueue.main.async {
                 self?.hudFlash(content: .success)
+
+                self?.title = friendDetail.firstName
+                self?.labelName.text = friendDetail.getFullName()
+                self?.labelCity.text = friendDetail.city
+                self?.labelFriends.text = friendDetail.friendsCount?.toString()
+                self?.labelCommon.text = friendDetail.commonCount?.toString()
+                self?.labelFollowers.text = friendDetail.followersCount?.toString()
+                self?.labelPhotos.text = friendDetail.photosCount?.toString()
+                self?.labelVideos.text = friendDetail.videosCount?.toString()
+
                 if let avatarUrl = URL(string: friendDetail.avatarOrigUrl) {
                     self?.avatarImageView.sd_setImage(with: avatarUrl, completed: nil)
                 }
-                self?.title = friendDetail.firstName
-                self?.labelName.text = friendDetail.getFullName()
+
                 if let dateTime = friendDetail.dateTimeString {
-                    self?.labelSeen.text = "last seen \(dateTime)"
-                } else {
-                    self?.labelSeen.text = ""
-                }
-                if let city = friendDetail.city {
-                    self?.labelCity.text = city
-                }
-                if let friendsCount = friendDetail.friendsCount {
-                    self?.labelFriends.text = "\(friendsCount)"
-                }
-                if let commonCount = friendDetail.commonCount {
-                    self?.labelCommon.text = "\(commonCount)"
-                }
-                if let followersCount = friendDetail.followersCount {
-                    self?.labelFollowers.text = "\(followersCount)"
-                }
-                if let photosCount = friendDetail.photosCount {
-                    self?.labelPhotos.text = "\(photosCount)"
-                }
-                if let videosCount = friendDetail.videosCount {
-                    self?.labelVideos.text = "\(videosCount)"
+                    self?.labelSeen.text = Strings.lastSeen(dateTime: dateTime)
                 }
             }
 

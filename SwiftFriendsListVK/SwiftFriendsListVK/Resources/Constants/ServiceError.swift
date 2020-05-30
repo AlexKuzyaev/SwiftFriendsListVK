@@ -1,5 +1,5 @@
 //
-//  Enums.swift
+//  ServiceError.swift
 //  SwiftFriendsListVK
 //
 //  Created by Александр Кузяев on 30.05.2020.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-enum Result<T> {
-    case success(T)
-    case error(Error)
+enum ServiceError: Error {
+    case vkAuthorizationFailed
+    case responseError
 }

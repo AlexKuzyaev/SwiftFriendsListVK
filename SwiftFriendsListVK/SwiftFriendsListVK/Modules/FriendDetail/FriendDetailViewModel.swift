@@ -13,11 +13,13 @@ class FriendDetailViewModel: BaseViewModel {
 
     // MARK: - Properties
 
-    var friend: Friend
+    let vkService: VKService
+    let friend: Friend
 
     // MARK: - Initialization
 
-    init(friend: Friend) {
+    init(vkService: VKService, friend: Friend) {
+        self.vkService = vkService
         self.friend = friend
         super.init()
     }
@@ -29,16 +31,16 @@ extension FriendDetailViewModel {
     
     func fetchFriend() -> Observable<FriendDetail>{
         return Observable.create({ [weak self] (observer) -> Disposable in
-            guard let weakSelf = self else {
+            guard let self = self else {
                 return SingleAssignmentDisposable()
             }
 
-            VKManager.instance.friend(with: weakSelf.friend.id) { (result) in
+            self.vkService.friend(with: self.friend.id) { (result) in
                 switch result {
-                case .Success(let friendDetail):
+                case .success(let friendDetail):
                     observer.on(.next(friendDetail))
                     observer.on(.completed)
-                case .Error(let error):
+                case .error(let error):
                     observer.on(.error(error))
                 }
             }

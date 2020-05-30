@@ -11,30 +11,26 @@ import Foundation
 class FriendsListViewModel: BaseViewModel {
 
     // MARK: - Private Properties
-    
-    private var friends = [Friend]() {
-        didSet {
-            cellViewModels = friends.compactMap({ (friend) -> FriendTableViewCellViewModel? in
-                return createCellViewModel(friend: friend)
-            })
-        }
-    }
-    
-    private var cellViewModels = [FriendTableViewCellViewModel]() {
-        didSet {
-            self.reloadTableViewClosure?()
-        }
-    }
+
+    private var friends = [Friend]()
+    private var cellViewModels = [FriendTableViewCellViewModel]()
 
     // MARK: - Properties
-    
-    var selectedFriend: Friend?
+
+    let vkService: VKService
     
     var numberOfCells: Int {
         return cellViewModels.count
     }
-    
+    var selectedFriend: Friend?
     var reloadTableViewClosure: EmptyClosure?
+
+    // MARK: - Initialization
+
+    init(vkService: VKService) {
+        self.vkService = vkService
+        super.init()
+    }
 
     // MARK: - Public Methods
 
@@ -43,12 +39,13 @@ class FriendsListViewModel: BaseViewModel {
     }
 
     func fetchFriends() {
-        VKManager.instance.friendsList { [weak self] (result) in
+        vkService.friendsList { [weak self] (result) in
             switch result {
-            case .Success(let friends):
+            case .success(let friends):
                 self?.friends = friends
+                self?.configureCellViewModels(friends: friends)
                 break
-            case .Error(let error):
+            case .error(let error):
                 self?.alertMessage = error.localizedDescription
                 break
             }
@@ -56,7 +53,7 @@ class FriendsListViewModel: BaseViewModel {
     }
 
     func friendPressed(at indexPath: IndexPath ){
-        let friend = self.friends[indexPath.row]
+        let friend = friends[indexPath.row]
         if !friend.isDeleted {
             self.selectedFriend = friend
         }
@@ -66,6 +63,13 @@ class FriendsListViewModel: BaseViewModel {
 // MARK: - Private Methods
 
 private extension FriendsListViewModel {
+
+    func configureCellViewModels(friends: [Friend]) {
+        cellViewModels = friends.compactMap({ (friend) -> FriendTableViewCellViewModel? in
+            return createCellViewModel(friend: friend)
+        })
+        reloadTableViewClosure?()
+    }
 
     func createCellViewModel(friend: Friend) -> FriendTableViewCellViewModel? {
         let url = URL(string: friend.avatarUrl)

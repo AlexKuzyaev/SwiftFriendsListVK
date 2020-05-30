@@ -10,20 +10,33 @@ import Foundation
 
 class LoginViewModel: BaseViewModel {
 
+    // MARK: - Private Properties
+
+    let vkService: VKService
+
     // MARK: - Properties
     
     var onSuccessLogin: EmptyClosure?
 
+    // MARK: - Initialization
+
+    init(vkService: VKService) {
+        self.vkService = vkService
+        super.init()
+    }
+
     // MARK: - Public Methods
     
     func vkLogin() {
-        VKManager.instance.login { [weak self] (result) in
+        vkService.login { [weak self] (result) in
             switch result {
-            case .Success(let success):
+            case .success(let success):
                 if success {
                     self?.onSuccessLogin?()
+                } else {
+                    self?.alertMessage = Strings.vkLoginError
                 }
-            case .Error(let error):
+            case .error(let error):
                 self?.alertMessage = error.localizedDescription
             }
         }

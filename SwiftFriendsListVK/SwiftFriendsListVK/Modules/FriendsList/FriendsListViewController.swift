@@ -22,25 +22,19 @@ class FriendsListViewController: BaseViewController {
 
     // MARK: - Public Properties
 
-    let viewModel = FriendsListViewModel()
+    private var viewModel: FriendsListViewModel?
 
     // MARK: - Private Properties
     
-    private lazy var refreshControl: UIRefreshControl = {
-        let refreshControl = UIRefreshControl()
-        refreshControl.addTarget(self,
-                                 action: #selector(handleRefresh(_:)),
-                                 for: UIControl.Event.valueChanged)
-        refreshControl.tintColor = UIColor.appColor
-        
-        return refreshControl
-    }()
+    private let refreshControl = UIRefreshControl()
 
-    // MARK: - Static Methods
+    // MARK: - Class Methods
 
-    static func instance() -> FriendsListViewController? {
-        return UIStoryboard(name: String(describing: FriendsListViewController.self),
-                            bundle: nil).instantiateInitialViewController() as? FriendsListViewController
+    class func instance(viewModel: FriendsListViewModel) -> FriendsListViewController? {
+        let viewController = UIStoryboard(name: String(describing: FriendsListViewController.self),
+                                          bundle: nil).instantiateInitialViewController() as? FriendsListViewController
+        viewController?.viewModel = viewModel
+        return viewController
     }
 
     // MARK: - UIViewController
@@ -54,18 +48,24 @@ class FriendsListViewController: BaseViewController {
     // MARK: - Other
     
     @objc func handleRefresh(_ refreshControl: UIRefreshControl) {
-        viewModel.fetchFriends()
+        viewModel?.fetchFriends()
     }
     
     fileprivate func showFriendsDetailController(friend: Friend) {
-        guard let controller = FriendDetailViewController.instance(friend: friend) else {
+        guard let vkService = viewModel?.vkService else {
+            return
+        }
+
+        let viewModel = FriendDetailViewModel(vkService: vkService, friend: friend)
+
+        guard let controller = FriendDetailViewController.instance(viewModel: viewModel) else {
             return
         }
         navigationController?.pushViewController(controller, animated: true)
     }
     
     func updateTitle(count: Int) {
-        title = "\(count) friends"
+        title = Strings.getFriends(count: count)
     }
 }
 
@@ -74,15 +74,20 @@ class FriendsListViewController: BaseViewController {
 extension FriendsListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: FriendTableViewCell.className, for: indexPath) as? FriendTableViewCell else {
+        guard
+            let cell = tableView.dequeueReusableCell(withIdentifier: FriendTableViewCell.className, for: indexPath) as? FriendTableViewCell,
+            let cellViewModel = viewModel?.getCellViewModel(at: indexPath)
+        else {
             return UITableViewCell()
         }
-        let cellViewModel = viewModel.getCellViewModel(at: indexPath )
         cell.update(avatarUrl: cellViewModel.avatarUrl, name: cellViewModel.name)
         return cell
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let viewModel = viewModel else {
+            return 0
+        }
         if viewModel.numberOfCells != 0 {
             updateTitle(count: viewModel.numberOfCells)
         }
@@ -95,8 +100,8 @@ extension FriendsListViewController: UITableViewDelegate, UITableViewDataSource 
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        viewModel.friendPressed(at: indexPath)
-        if let selectedFriend = viewModel.selectedFriend {
+        viewModel?.friendPressed(at: indexPath)
+        if let selectedFriend = viewModel?.selectedFriend {
             showFriendsDetailController(friend: selectedFriend)
         }
     }
@@ -111,24 +116,36 @@ extension FriendsListViewController: UITableViewDelegate, UITableViewDataSource 
 private extension FriendsListViewController {
 
     func configureView() {
-        tableView.register(UINib(nibName: Nib.friendTableViewCell, bundle: nil),
+        configureTableView()
+        configureRefreshControl()
+    }
+
+    func configureTableView() {
+        tableView.register(UINib(nibName: FriendTableViewCell.className, bundle: nil),
                            forCellReuseIdentifier: FriendTableViewCell.className)
         tableView.tableFooterView = UIView()
         tableView.addSubview(refreshControl)
     }
 
+    func configureRefreshControl() {
+        refreshControl.addTarget(self,
+                                 action: #selector(handleRefresh(_:)),
+                                 for: UIControl.Event.valueChanged)
+        refreshControl.tintColor = UIColor.appColor
+    }
+
     func configureViewModel() {
-        viewModel.showAlertClosure = { [weak self] in
+        viewModel?.showAlertClosure = { [weak self] in
             DispatchQueue.main.async {
                 self?.hudFlash(content: .error)
                 self?.refreshControl.endRefreshing()
-                if let message = self?.viewModel.alertMessage {
+                if let message = self?.viewModel?.alertMessage {
                     self?.showAlert(alertTitle: Strings.error, message: message)
                 }
             }
         }
 
-        viewModel.reloadTableViewClosure = { [weak self] () in
+        viewModel?.reloadTableViewClosure = { [weak self] () in
             DispatchQueue.main.async {
                 self?.hudFlash(content: .success)
                 self?.refreshControl.endRefreshing()
@@ -137,6 +154,6 @@ private extension FriendsListViewController {
         }
 
         hudShowProgress()
-        viewModel.fetchFriends()
+        viewModel?.fetchFriends()
     }
 }

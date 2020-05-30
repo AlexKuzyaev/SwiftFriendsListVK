@@ -8,23 +8,13 @@
 
 import UIKit
 
-// MARK: - Storyboard
-
-struct Storyboard {
-    static let main = UIStoryboard(name: "Main", bundle: nil)
-}
-
-// MARK: - Nib
-
-struct Nib {
-    static let friendTableViewCell = "FriendTableViewCell"
-}
-
-// MARK: - Constants
+// MARK: - AppConstants
 
 enum AppConstants {
     static let vkAppId = "6642077"
 }
+
+// MARK: - UiConstants
 
 enum UiConstants {
     static let hudDelay = 0.5

@@ -19,7 +19,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Public Methods
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        VKManager.instance.setup()
         configureNavigationBar()
         initializeRootView()
         return true
@@ -39,6 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 private extension AppDelegate {
 
     func configureNavigationBar() {
+        UINavigationBar.appearance().isTranslucent = false
         UINavigationBar.appearance().tintColor = UIColor.white
         UINavigationBar.appearance().barTintColor = UIColor.appColor
         UINavigationBar.appearance().backgroundColor = UIColor.appColor
@@ -54,10 +54,18 @@ private extension AppDelegate {
     }
 
     func setRootViewController() {
-        guard let loginViewController = LoginViewController.instance() else {
+
+        let vkService = VKService()
+        vkService.setup(appId: AppConstants.vkAppId)
+
+        let loginViewModel = LoginViewModel(vkService: vkService)
+
+        guard let loginViewController = LoginViewController.instance(viewModel: loginViewModel) else {
             return
         }
+
         let navigationController = UINavigationController(rootViewController: loginViewController)
+        navigationController.navigationBar.barStyle = .black
         window?.rootViewController = navigationController
     }
 }
